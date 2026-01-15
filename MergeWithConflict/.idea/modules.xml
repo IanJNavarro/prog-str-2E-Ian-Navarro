@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/MergeWithConflict.iml" filepath="$PROJECT_DIR$/MergeWithConflict.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/MergeWithConflict.iml" filepath="$PROJECT_DIR$/.idea/MergeWithConflict.iml" />
+>>>>>>> 389c535d81165098865c1f4d8f06ba6fcd49d33e
     </modules>
   </component>
 </project>
