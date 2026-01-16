@@ -1,15 +1,40 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+import java.util.Scanner;
+public class Main{
+    public static void main(String[]a){
+        Scanner sc = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        int numero = obtenerInt(sc,"Ingresa un numero para hacer una suma aritmetica:");
+
+        int suma = sumaSerieAritmetica(numero);
+
+        System.out.println("La suma del numero y todos sus anteriores es:"+suma);
+    }
+
+    /**
+     * Metodo para escribir mensajes y capturar valores Int
+     * @param sc -> previamente declarado en main
+     * @param mensaje -> parametro
+     * @return -> Int
+     */
+    public static int obtenerInt(Scanner sc, String mensaje){
+        System.out.println(mensaje);
+        return sc.nextInt();
+    }
+
+    /**
+     * Metodo para sumar un numero con todos los numeros que lo preceden.
+     * @param num -> int para hacer la suma
+     * @return -> La suma de los numeros en Int
+     */
+    public static int sumaSerieAritmetica(int num){
+        int sum = 0;
+
+        for(int i=1; i<=num; i++){
+            sum += i;
         }
+
+        return sum;
     }
 }
+
+// Link Repo: https://github.com/IanJNavarro/prog-str-2E-Ian-Navarro.git
