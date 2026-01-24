@@ -27,11 +27,11 @@ public class ActividadSwitchCalculadora {
                 break;
             case 2:
                 System.out.println("La resta de los numeros es:");
-                System.out.println(num1 +"+"+num2+"="+resta(num1,num2));
+                System.out.println(num1 +"-"+num2+"="+resta(num1,num2));
                 break;
             case 3:
                 System.out.println("La multiplicacion de los numeros es:");
-                System.out.println(num1 +"+"+num2+"="+multiplicacion(num1,num2));
+                System.out.println(num1 +"*"+num2+"="+multiplicacion(num1,num2));
                 break;
             case 4:
                 division(num1,num2);
@@ -96,7 +96,7 @@ public class ActividadSwitchCalculadora {
             System.out.println("No se puede dividir entre cero.");
         }else {
             System.out.println("La division de los numeros es:");
-            System.out.println(num1 +"+"+num2+"="+(num1/num2));
+            System.out.println(num1 +"/"+num2+"="+(num1/num2));
         }
     }
 }
