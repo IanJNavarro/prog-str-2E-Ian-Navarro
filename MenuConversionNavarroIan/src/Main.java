@@ -126,14 +126,4 @@ public class Main {
 
         return km;
     }
-
-    public static boolean validarNumerico(Scanner sc, double num){
-        if (sc.hasNextDouble() || sc.hasNextInt()){
-            return true;
-        }else {
-            System.out.println("Porfavor ingresa un valor numerico");
-            return false;
-        }
-
-    }
 }
