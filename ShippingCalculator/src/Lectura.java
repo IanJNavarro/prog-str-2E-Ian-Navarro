@@ -1,14 +1,7 @@
 import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-
-
-    }
-
-    public double leerDoubleEnRango(Scanner sc, String mensaje, double min, double max){
+public class Lectura {
+    public static double leerDoubleEnRango(Scanner sc, String mensaje, double min, double max){
         double valor;
         while (true){
             System.out.println(mensaje);
@@ -25,7 +18,7 @@ public class Main {
         }
     }
 
-    public int leerIntEnRango(Scanner sc, String mensaje, int min, int max){
+    public static int leerIntEnRango(Scanner sc, String mensaje, int min, int max){
         int valor;
         while (true){
             System.out.println(mensaje);
@@ -42,7 +35,7 @@ public class Main {
         }
     }
 
-    public boolean leerBoolean(Scanner sc, String mensaje){
+    public static boolean leerBoolean(Scanner sc, String mensaje){
         String valor;
         while (true){
             System.out.println(mensaje); // ingresa si o no
@@ -52,9 +45,10 @@ public class Main {
                     return true;
                 } else if (valor.equals("no")) {
                     return false;
+                }else{
+                    System.out.println("Porfavor ingresa solamente en minusculas si o no ");
                 }
             }else {
-                System.out.println("Porfavor ingresa solamente si o no");
                 sc.next();
             }
         }
