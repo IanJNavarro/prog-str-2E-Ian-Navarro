@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ActividadBuenasPracticas/ActividadBuenasPracticas.iml" filepath="$PROJECT_DIR$/ActividadBuenasPracticas/ActividadBuenasPracticas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ActividadRefactorNavarroIan/ActividadRefactorNavarroIan.iml" filepath="$PROJECT_DIR$/ActividadRefactorNavarroIan/ActividadRefactorNavarroIan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AdivinarNumero/AdivinarNumero.iml" filepath="$PROJECT_DIR$/AdivinarNumero/AdivinarNumero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ControlIfElseNombreNavarro/ControlIfElseNombreNavarro.iml" filepath="$PROJECT_DIR$/ControlIfElseNombreNavarro/ControlIfElseNombreNavarro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ControlSwitchIanNavarro/ControlSwitchIanNavarro.iml" filepath="$PROJECT_DIR$/ControlSwitchIanNavarro/ControlSwitchIanNavarro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavadocNavarroIan/JavadocNavarroIan.iml" filepath="$PROJECT_DIR$/JavadocNavarroIan/JavadocNavarroIan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MenuConversionNavarroIan/MenuConversionNavarroIan.iml" filepath="$PROJECT_DIR$/MenuConversionNavarroIan/MenuConversionNavarroIan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MergeWithOutConflict/MergeWithOutConflict.iml" filepath="$PROJECT_DIR$/MergeWithOutConflict/MergeWithOutConflict.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JavadocNavarroIan/ShippingCalculator/ShippingCalculator.iml" filepath="$PROJECT_DIR$/JavadocNavarroIan/ShippingCalculator/ShippingCalculator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prog-str-2E-Ian-Navarro.iml" filepath="$PROJECT_DIR$/prog-str-2E-Ian-Navarro.iml" />
+    </modules>
+  </component>
+</project>
