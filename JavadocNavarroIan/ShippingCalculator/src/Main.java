@@ -5,6 +5,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
 
+
     }
 
     public double leerDoubleEnRango(Scanner sc, String mensaje, double min, double max){
@@ -41,28 +42,21 @@ public class Main {
         }
     }
 
-"""
-public static boolean pedirDecision(Scanner sc, String mensaje){
-        System.out.println(mensaje);
-        String decision = sc.next();
-
-        if (decision.equals("si")){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
-"""
     public boolean leerBoolean(Scanner sc, String mensaje){
         String valor;
         while (true){
-            System.out.println(mensaje);
-            if (sc.hasNext ){
-                valor = sc.nextBoolean();
-                return valor;
+            System.out.println(mensaje); // ingresa si o no
+            if (sc.hasNext()){
+                valor = sc.next();
+                if (valor.equals("si")){
+                    return true;
+                } else if (valor.equals("no")) {
+                    return false;
+                }
+            }else {
+                System.out.println("Porfavor ingresa solamente si o no");
+                sc.next();
             }
-            System.out.println("Porfavor ingresa solamente true o false");
         }
     }
 }
