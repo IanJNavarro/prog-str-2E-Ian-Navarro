@@ -21,7 +21,7 @@ public class ShippingCalculator {
      * @return -> Double
      */
     public static double calcularIVA(double subtotal){
-        return subtotal * 16;
+        return subtotal * 0.16;
     }
 
     /**
