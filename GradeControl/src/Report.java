@@ -31,44 +31,19 @@ public class Report {
         this.estado = estado;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public double getGrade1() {
-        return grade1;
-    }
-
-    public double getGrade2() {
-        return grade2;
-    }
-
-    public double getGrade3() {
-        return grade3;
-    }
-
-    public double getAverage() {
-        return average;
-    }
-
-    public int getAttendance() {
-        return attendance;
-    }
-
-    public double getFinalGrade() {
-        return finalGrade;
-    }
-
-    public String getEstado() {
-        return estado;
-    }
-
+    /**
+     * Metodo para convertir
+     * @return -> String Resultado
+     */
     private String projectAnswer(){
         if (this.projectTurnedIn){
             return "Entregado";
         }else return "NO Entrego";
     }
 
+    /**
+     * Metodo para imprimir los datos del objeto en un reporte.
+     */
     public void printReport(){
         System.out.println("------------------REPORTE-------------------");
         System.out.println("Nombre del estudiante: "+ this.name);
