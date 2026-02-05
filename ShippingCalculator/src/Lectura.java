@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
 public class Lectura {
+    /**
+     * Metodo para pedir un double en un rango especifico.
+     * @param sc -> escaner previamente definido
+     * @param mensaje -> Mensaje a mostrar
+     * @param min -> limite minimo
+     * @param max -> Limite Maximo
+     * @return -> Double
+     */
     public static double leerDoubleEnRango(Scanner sc, String mensaje, double min, double max){
         double valor;
         while (true){
@@ -18,6 +26,14 @@ public class Lectura {
         }
     }
 
+    /**
+     * Metodo para pedir un Int en un rango especifico.
+     * @param sc -> Escaner previamente definido
+     * @param mensaje -> Mensaje a mostrar
+     * @param min -> limite Minimo
+     * @param max -> Limite Maximo
+     * @return -> Int
+     */
     public static int leerIntEnRango(Scanner sc, String mensaje, int min, int max){
         int valor;
         while (true){
@@ -35,6 +51,12 @@ public class Lectura {
         }
     }
 
+    /**
+     * Metodo para pedir String "si" o "no" en valor boolean true or false respectivamente
+     * @param sc -> previamente definido
+     * @param mensaje -> mensaje a mostrar
+     * @return -> Boolean
+     */
     public static boolean leerBoolean(Scanner sc, String mensaje){
         String valor;
         while (true){
