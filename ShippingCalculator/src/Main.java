@@ -22,7 +22,6 @@ public class Main {
 
         Ticket ticket1 = new Ticket(tipoServicio, pesoKg, distanciaKm, zonaRural, subtotal, iva, total);
 
-
         ticket1.printTicket();
 
 

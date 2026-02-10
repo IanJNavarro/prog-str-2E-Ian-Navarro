@@ -30,6 +30,4 @@ public class GradeService {
     public static double calcularFinal(double promedio, int asistencia){
         return (promedio * 0.7) + (asistencia * 0.3);
     }
-
-
 }
