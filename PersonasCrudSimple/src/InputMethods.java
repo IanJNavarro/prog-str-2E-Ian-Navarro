@@ -1,21 +1,20 @@
 import java.util.Scanner;
 
 public class InputMethods {
-    static Scanner sc = new Scanner(System.in);
-
     /**
      * Metodo para mostrar un mensaje, pedir un String y confirmar que no este vacio.
      * @param sc -> Scanner Previamente definido
      * @param mensaje -> Mensaje a mostrar
      * @return -> String texto
      */
-    public static String leerTextoNoVacio( String mensaje){
+    public static String leerTextoNoVacio(Scanner sc, String mensaje){
         String texto;
         while (true){
             System.out.println(mensaje);
+            sc.nextLine();
             if (sc.hasNextLine()){
                 texto = sc.nextLine();
-                if (texto.equals("")){
+                if (texto.isEmpty()){
                     System.out.println("Porfavor ingresa un nombre");
                 }else return texto;
             }else sc.next();
@@ -55,7 +54,7 @@ public class InputMethods {
      * @param max -> Limite Maximo
      * @return -> Int
      */
-    public static int leerIntEnRango( String mensaje, int min, int max){
+    public static int leerIntEnRango(Scanner sc, String mensaje, int min, int max){
         int valor;
         while (true){
             System.out.println(mensaje);

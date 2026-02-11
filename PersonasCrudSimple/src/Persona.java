@@ -6,9 +6,10 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int id, String name) {
+    public Persona(int id, String name, boolean activa) {
         this.id = id;
         this.name = name;
+        this.activa = activa;
     }
 
     public int getId() {
