@@ -7,8 +7,10 @@ public class Student {
     public Student() {
     }
 
-    public Student(int id) {
+    public Student(int id, String name, double grade) {
         this.id = id;
+        this.name = name;
+        this.grade = grade;
     }
 
     public int getId() {
@@ -35,7 +37,7 @@ public class Student {
         this.grade = grade;
     }
 
-    public boolean setState() {
+    public boolean getState() {
         return state;
     }
 
@@ -45,12 +47,9 @@ public class Student {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Student{");
-        sb.append("id=").append(id);
-        sb.append(", name='").append(name).append('\'');
-        sb.append(", grade=").append(grade);
-        sb.append(", state=").append(state);
-        sb.append('}');
-        return sb.toString();
+        return "Estudiante: " + name + '\n' +
+                "ID: " + id + '\n' +
+                "Promedio: " + grade + '\n' +
+                "Estado activo: " + state;
     }
 }

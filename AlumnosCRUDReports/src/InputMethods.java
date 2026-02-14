@@ -37,10 +37,10 @@ public class InputMethods {
                 if (valor >= min && valor <= max){
                     return valor;
                 }
-                System.out.println("El numero ingresado no es valido");
+                System.out.println("Error: El número debe estar entre " + min + " y " + max);
             }else{
                 System.out.println("Ingresa un valor numerico");
-                sc.next();
+                sc.nextLine();
             }
         }
     }
@@ -63,10 +63,10 @@ public class InputMethods {
                 if (valor >= min && valor <= max){
                     return valor;
                 }
-                System.out.println("El numero ingresado no es valido");
+                System.out.println("Error: El número debe estar entre " + min + " y " + max);
             }else{
-                System.out.println("Ingresa un valor numerico");
-                sc.next();
+                System.out.println("Ingresa un valor numerico.");
+                sc.nextLine();
             }
         }
     }
@@ -92,7 +92,7 @@ public class InputMethods {
                     System.out.println("Porfavor ingresa solamente si o no ");
                 }
             }else {
-                sc.next();
+                sc.nextLine();
             }
         }
     }
