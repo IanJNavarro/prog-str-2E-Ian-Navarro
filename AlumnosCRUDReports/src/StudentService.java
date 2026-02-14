@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class StudentService {
     private final Student[] students = new Student[25];
 
