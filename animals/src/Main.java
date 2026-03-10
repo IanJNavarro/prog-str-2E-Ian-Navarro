@@ -19,7 +19,7 @@ public class Main {
 
         for (Animal animal : animals){
             System.out.println("---------------");
-            animal.comer();
+            animal.comer(); 
             animal.hacerSonido();
         }
 
