@@ -1,6 +1,7 @@
 package com.example.demolistview.controllers;
 
 import com.example.demolistview.services.PersonService;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -8,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import java.io.IOException;
 import java.util.List;
 
@@ -31,7 +33,33 @@ public class AppControllers {
     @FXML
     public void initialize(){
         loadFromFile();
+        listView.getSelectionModel().selectedItemProperty().addListener( (observable, oldValue, newValue) ->{
+            loadDataToForm(newValue);
+        });
         listView.setItems(data);
+    }
+
+    @FXML
+    public void onAdd(){
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        int age = 0;
+        try {
+            age = Integer.parseInt(txtAge.getText());
+            service.addPerson(name,email,age);
+            lblMsg.setStyle("-fx-text-fill: green");
+            lblMsg.setText("Persona creada con exito.");
+            txtEmail.clear();
+            txtName.clear();
+            txtAge.clear();
+        }catch (IOException IOException){
+            lblMsg.setStyle("-fx-text-fill: red");
+            lblMsg.setText("Error con el archivo.");
+        }catch (IllegalArgumentException argumentException){
+            lblMsg.setStyle("-fx-text-fill: red");
+            lblMsg.setText("Error con los datos.");
+        }
+
     }
 
     @FXML
@@ -40,14 +68,15 @@ public class AppControllers {
     }
 
     @FXML
-    public void onAdd(){
+    public void onUpdate(){
         String name = txtName.getText();
         String email = txtEmail.getText();
         int age = 0;
-
         try {
+            int index = listView.getSelectionModel().getSelectedIndex();
             age = Integer.parseInt(txtAge.getText());
-            service.addPerson(name,email,age);
+            service.updateInfo(index, name,email,age);
+            loadFromFile();
             lblMsg.setStyle("-fx-text-fill: green");
             lblMsg.setText("Persona creada con exito.");
             txtEmail.clear();
@@ -73,6 +102,35 @@ public class AppControllers {
             lblMsg.setStyle("-fx-text-fill: red");
             lblMsg.setText("Error al cargar los archivos.");
         }
+    }
+    private void loadDataToForm(String data){
+        String[] parts = data.split(" - ");
+        txtName.setText(parts[0]);
+        txtEmail.setText(parts[1]);
+        txtAge.setText(parts[2]);
+    }
 
+    @FXML
+    public void onDelete(){
+        String name = txtName.getText();
+        String email = txtEmail.getText();
+        int age = 0;
+        try {
+            int index = listView.getSelectionModel().getSelectedIndex();
+            age = Integer.parseInt(txtAge.getText());
+            service.deletePerson(index);
+            loadFromFile();
+            lblMsg.setStyle("-fx-text-fill: green");
+            lblMsg.setText("Persona eliminada con exito.");
+            txtEmail.clear();
+            txtName.clear();
+            txtAge.clear();
+        }catch (IOException IOException){
+            lblMsg.setStyle("-fx-text-fill: red");
+            lblMsg.setText("Error con el archivo.");
+        }catch (IllegalArgumentException argumentException){
+            lblMsg.setStyle("-fx-text-fill: red");
+            lblMsg.setText("Error con los datos.");
+        }
     }
 }

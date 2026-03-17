@@ -23,7 +23,7 @@ public class PersonService {
             String email = parts[1];
             String age = parts[2];
 
-            result.add("Name: "+name + " - Email: " + email + " - Age: " + age );
+            result.add(name + " - " + email + " - " + age );
         }
 
         return result;
@@ -45,5 +45,37 @@ public class PersonService {
         if (age < 18 || age > 110 ){
             throw new IllegalArgumentException("La edad no esta en un rango valido.");
         }
+    }
+
+    private List<String> getCleanLines() throws IOException {
+        List<String> lines = repo.readAllLines();
+        List<String> cleanLines = new ArrayList<>();
+
+        for (String line : lines){
+            if (line != null && !line.isBlank()){
+                cleanLines.add(line);
+            }
+        }
+        return cleanLines;
+    }
+
+    public void updateInfo(int indice, String name, String email, int age) throws IOException {
+        if (indice < 0){
+            throw new IllegalArgumentException("El indice es invalido");
+        }
+        List<String> data = getCleanLines();
+
+        data.set(indice,name+","+email+","+age);
+        repo.saveFile(data);
+    }
+
+    public void deletePerson(int index) throws IOException {
+        if (index < 0){
+            throw new IllegalArgumentException("El indice es invalido");
+        }
+        List<String> data = getCleanLines();
+
+        data.remove(index);
+        repo.saveFile(data);
     }
 }
