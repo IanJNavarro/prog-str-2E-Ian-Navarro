@@ -32,10 +32,11 @@ public class AppControllers {
 
     @FXML
     public void initialize(){
-        loadFromFile();
         listView.getSelectionModel().selectedItemProperty().addListener( (observable, oldValue, newValue) ->{
             loadDataToForm(newValue);
         });
+        loadFromFile();
+
         listView.setItems(data);
     }
 
@@ -82,6 +83,7 @@ public class AppControllers {
             txtEmail.clear();
             txtName.clear();
             txtAge.clear();
+            loadFromFile();
         }catch (IOException IOException){
             lblMsg.setStyle("-fx-text-fill: red");
             lblMsg.setText("Error con el archivo.");
@@ -112,23 +114,29 @@ public class AppControllers {
 
     @FXML
     public void onDelete(){
-        String name = txtName.getText();
-        String email = txtEmail.getText();
+
         int age = 0;
         try {
             int index = listView.getSelectionModel().getSelectedIndex();
-            age = Integer.parseInt(txtAge.getText());
+
             service.deletePerson(index);
-            loadFromFile();
+
             lblMsg.setStyle("-fx-text-fill: green");
             lblMsg.setText("Persona eliminada con exito.");
             txtEmail.clear();
             txtName.clear();
             txtAge.clear();
-        }catch (IOException IOException){
+            try{
+                List<String> items = service.loadDataForListView();
+                data.setAll(items);
+               listView.setItems(data);
+            }catch (IOException e){
+
+            }
+        }catch (IOException e){
             lblMsg.setStyle("-fx-text-fill: red");
             lblMsg.setText("Error con el archivo.");
-        }catch (IllegalArgumentException argumentException){
+        }catch (IllegalArgumentException e){
             lblMsg.setStyle("-fx-text-fill: red");
             lblMsg.setText("Error con los datos.");
         }
