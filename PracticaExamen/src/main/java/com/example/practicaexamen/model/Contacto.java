@@ -41,11 +41,10 @@ public class Contacto {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("Contacto{");
-        sb.append("name='").append(name).append('\'');
-        sb.append(", phone='").append(phone).append('\'');
-        sb.append(", parent='").append(parent).append('\'');
-        sb.append('}');
+        final StringBuilder sb = new StringBuilder("Contacto: ");
+        sb.append(name);
+        sb.append(", Telefono: ").append(phone);
+        sb.append(", Parentesco: ").append(parent);
         return sb.toString();
     }
 }
