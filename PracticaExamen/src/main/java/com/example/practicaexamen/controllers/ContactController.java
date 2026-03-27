@@ -6,6 +6,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -16,6 +17,8 @@ public class ContactController {
     private ComboBox<String> cbParentesco;
     private ObservableList<String> listObservableParent = FXCollections.observableArrayList();
 
+    @FXML
+    private Label lblError;
     @FXML
     private TextField txtSearch;
     @FXML
@@ -45,10 +48,17 @@ public class ContactController {
 
         Contacto contact = new Contacto(name, num, parent);
 
-        service.addContact(contact);
+        try {
+            service.addContact(contact);
+            showCorrect("Contacto agregado con exito");
+            showList();
+            clearForm();
+        } catch (IllegalArgumentException e){
+            showError(e);
+        }
 
-        showList();
-        clearForm();
+
+
 
     }
 
@@ -56,10 +66,15 @@ public class ContactController {
     public void onSearch(){
         String name = txtSearch.getText();
 
-        int index = service.searchIndex(name);
-        Contacto contacto = service.search(index);
+        try{
+            int index = service.searchIndex(name);
+            Contacto contacto = service.search(index);
 
-        populateFields(contacto);
+            populateFields(contacto);
+            showCorrect("Contacto Encontrado");
+        }catch (IllegalArgumentException e){
+            showError(e);
+        }
 
         txtSearch.clear();
     }
@@ -74,10 +89,15 @@ public class ContactController {
 
         Contacto updatedContact = new Contacto(name, num, parent);
 
-        service.updateContact(index, updatedContact);
+        try {
+            service.updateContact(index, updatedContact);
+            showCorrect("Contacto actualizado con exito");
+            showList();
+            clearForm();
+        }catch (IllegalArgumentException e){
+            showError(e);
+        }
 
-        showList();
-        clearForm();
     }
 
     @FXML
@@ -89,6 +109,12 @@ public class ContactController {
         showList();
         clearForm();
 
+    }
+
+    @FXML
+    public void onClear(){
+        clearForm();
+        showCorrect("Campos limpiados");
     }
 
     private void populateFields(Contacto contacto){
@@ -108,5 +134,15 @@ public class ContactController {
         txtName.clear();
         txtNum.clear();
         cbParentesco.setValue(null);
+    }
+
+    private void showCorrect(String msg){
+        lblError.setStyle("-fx-text-fill: green");
+        lblError.setText(msg);
+    }
+
+    private void showError(IllegalArgumentException e){
+        lblError.setStyle("-fx-text-fill: red");
+        lblError.setText(e.getMessage());
     }
 }

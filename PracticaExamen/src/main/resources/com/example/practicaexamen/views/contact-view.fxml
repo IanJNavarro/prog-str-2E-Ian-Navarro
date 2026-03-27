@@ -30,7 +30,7 @@
                   <Label text="Telefono" GridPane.rowIndex="1" />
                   <Label text="Parentesco" GridPane.rowIndex="2" />
                   <ComboBox fx:id="cbParentesco" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button onAction="#onSearch" mnemonicParsing="false" prefHeight="26.0" prefWidth="279.0" text="Buscar" GridPane.rowIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#onSearch" prefHeight="26.0" prefWidth="279.0" text="Buscar" GridPane.rowIndex="3" />
                   <TextField fx:id="txtSearch" promptText="Search" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
             </GridPane>
@@ -42,7 +42,9 @@
             <Button mnemonicParsing="false" onAction="#onAddContact" text="Agregar" />
             <Button mnemonicParsing="false" onAction="#onUpdateContact" text="Actualizar" />
             <Button mnemonicParsing="false" onAction="#onDeleteContact" text="Eliminar" />
+            <Button mnemonicParsing="false" onAction="#onClear" text="Limpiar" />
          </children>
       </HBox>
+      <Label fx:id="lblError" />
    </children>
 </VBox>
